@@ -6,9 +6,9 @@
                 git credentialsId: 'c8103480-c032-4167-a9b2-5ae674340d48', url: 'https://github.com/Kavibalan1904/Jenkins.git'
                 }
             }
-            stage('maven build') {
+            stage('maven version') {
                 steps {
-                    sh 'mvn clean package'
+                    sh 'maven -version'
                 }
             }
             stage('java test') {
