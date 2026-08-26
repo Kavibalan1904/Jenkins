@@ -13,7 +13,7 @@
             }
             stage('java test') {
                 steps {
-                java -jar target/AWS-1.0-SNAPSHOT.jar
+                'java -jar target/AWS-1.0-SNAPSHOT.jar'
                 }
             }
         }
