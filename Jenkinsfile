@@ -22,7 +22,7 @@ pipeline{
         }
     stage('deploy')
         steps {
-            sh 'cp '/AWS/target/classes/App.class' 
+            sh 'cp /AWS/target/classes/App.class' 
            echo 'Deployment completed successfully.'
         }
     }
