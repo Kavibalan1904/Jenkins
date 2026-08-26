@@ -1,32 +1,22 @@
-pipeline{
-agent any maven{
-        mavenInstallation 'maven'
+pipeline {
+    agent any maven {
+        mavenInstallation 'Maven 3.6.3'
     }
-
-    stages{
-        stage('git') {
+    stages {
+        stage('git clone') {
             steps {
-                git credentialsId: 'c8103480-c032-4167-a9b2-5ae674340d48', url: 'https://github.com/Kavibalan1904/Jenkins.git'
-                echo 
+                sh 'git credentialsId: 'c8103480-c032-4167-a9b2-5ae674340d48', url: 'https://github.com/Kavibalan1904/Jenkins.git' '
             }
-
-    stage('version')  
-        steps {
-            sh 'mvn versions:set -DnewVersion=1.0.1'  
-        
         }
-
-    stage('build')
-        steps 
-{
-            sh 'mvn clean package'
-            echo 'Build completed successfully.'
+        stage('maven build') {
+            steps {
+                sh 'mvn clean package'
+            }
         }
-    stage('deploy')
-        steps {
-            sh 'cp /AWS/target/classes/App.class' 
-           echo 'Deployment completed successfully.'
+        stage('java test') {
+            steps {
+                sh 'java -cp target/jenkins-1.0-SNAPSHOT.jar com.jenkins.App'
+            }
         }
     }
-}
 }
