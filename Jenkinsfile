@@ -1,5 +1,7 @@
 pipeline{
-    agent any maven
+    agent any maven{
+        mavenInstallation 'maven'
+    }
 
     stages{
         stage('git') {
