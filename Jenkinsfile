@@ -8,7 +8,7 @@
             }
             stage('maven version') {
                 steps {
-                    sh 'maven -version'
+                    sh 'mvn --version'
                 }
             }
             stage('java test') {
