@@ -11,6 +11,11 @@
                     sh 'mvn --version'
                 }
             }
+            stage('java version') {
+                steps {
+                    sh 'java -version'
+                }
+            }
             stage('java test') {
                 steps {
                 sh 'java -cp target/AWS-1.0-SNAPSHOT.jar App'
